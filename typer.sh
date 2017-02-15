@@ -5,7 +5,6 @@ verde="\033[1;32m"
 amarelo="\033[1;33m"
 azul="\033[1;34m"
 cyan="\033[1;36m"
-b="\033[1;37m"
 cinza="\033[1;30m"
 
 clear
@@ -26,7 +25,7 @@ read resposta
 if [ "$resposta" = "1" ]
 then
  echo "$cyan Configurando VPS, aguarde..."
- echo "$b"
+ echo "$verde"
  apt-get update -y
  apt-get upgrade -y
  apt-get install squid3 -y
