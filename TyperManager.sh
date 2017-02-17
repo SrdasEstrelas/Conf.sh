@@ -100,7 +100,7 @@ then
  echo "$b"
  passwd $nome
 fi
-
+#Birll
 #Caso a resposta seja 4
 if [ "$resposta" = "4" ]
 then
