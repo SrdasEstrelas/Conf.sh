@@ -37,7 +37,7 @@ then
  
  #Adicionar a porta 443 no ssh e ativar a compressão
  echo "Port 443
- Compression yes" >> /etc/ssh/sshd_config
+Compression yes" >> /etc/ssh/sshd_config
  
  #Apagar e criar um novo squid.conf
  IP=$(curl https://api.ipify.org/)
@@ -68,6 +68,9 @@ http_port 3128
 visible_hostname SrdasEstrelas
 forwarded_for off
 via off" > /etc/squid3/squid.conf
+
+#Stop no apache2
+service apache2 stop
 
 #Restart no Squid3 e SSH
 service squid3 restart
