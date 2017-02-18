@@ -21,6 +21,7 @@ echo "$b
 "[2] Atualizar Pacotes"
 "[3] Adicionar Usuario"
 "[4] Deletar Usuario"
+"[5] Limitar Conexões"
 "
 echo "$amarelo Escolha um numero para o seu respectivo comando"
 read resposta
