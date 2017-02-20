@@ -37,7 +37,8 @@ apt-get install nano
 echo "Port 443" >> /etc/ssh/sshd_config
 
 #IP da VPS
-read -p "Digite o IP da VPS: " IP
+echo "Digite o IP da VPS"
+read -p ": " IP
 
 #Novo squid.conf
 echo "http_port 8080
