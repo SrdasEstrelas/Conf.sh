@@ -29,78 +29,36 @@ read resposta
 #Caso a resposta for 1
 if [ "$resposta" = "1" ]
 then
- echo "$cyan Configurando VPS, aguarde..."
- echo "$verde"
- apt-get update -y
- apt-get upgrade -y
- apt-get install squid3 -y
- apt-get install curl -y
- service apache2 stop
- 
- #Novo sshd_config
-echo "Port 22
-Port 443
-Protocol 2
-KeyRegenerationInterval 3600
-ServerKeyBits 1024
-SyslogFacility AUTH
-LogLevel INFO
-LoginGraceTime 120
-PermitRootLogin yes
-StrictModes yes
-RSAAuthentication yes
-PubkeyAuthentication yes
-IgnoreRhosts yes
-RhostsRSAAuthentication no
-HostbasedAuthentication no
-PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-PasswordAuthentication yes
-X11Forwarding yes
-X11DisplayOffset 10
-PrintMotd no
-PrintLastLog yes
-TCPKeepAlive yes
-#UseLogin no
-AcceptEnv LANG LC_*
-Subsystem sftp /usr/lib/openssh/sftp-server
-UsePAM yes" > /etc/ssh/sshd_config
-service ssh restart
- 
- #Apagar e criar um novo squid.conf
- IP=$(curl https://api.ipify.org/)
- echo $IP
- echo "#Squid By: Sr. Das Estrelas
-http_port 8080
-http_port 8799
-http_port 3128
-visible_hostname SrdasEstrelas
-acl ip dstdomain $IP
-http_access allow ip" > /etc/squid/squid.conf
-echo 'acl accept dstdomain -i "/etc/payloads"
-http_access allow accept
-acl local dstdomain localhost
-http_access allow local
-acl iplocal dstdomain 127.0.0.1
-http_access allow iplocal
-http_access deny all' >> /etc/squid/squid.conf
+apt-get update
+apt-get install squid3 -y
+apt-get install nano
+apt-get install curl -y
 
-#Payloads
-echo "minhaclaro.claro.com.br
-recargafacil.claro.com.br
-frontend.claro.com.br
-appfb.claro.com.sv
-empresas.claro.com.br
-d1n212ccp6ldpw.cloudfront.net
-claro-gestoronline.claro.com.br
-forms.claro.com.br
-golpf.claro.com.br
-logtiscap.claro.com.br
-www.recargafacil.claro.com.br
-.vivo.com.br
-.bradescocelular.com.br
-.claroseguridad.com" > /etc/payloads
-service squi3 restart
+#Adicionar a porta 443
+echo "Port 443" >> /etc/ssh/sshd_config
+
+#IP da VPS
+IP=$(curl https://api.ipify.org/)
+echo $IP
+
+#Novo squid.conf
+echo "http_port 8080
+http_port 80
+visible_hostname SrdasEstrelas
+acl accept src $IP
+acl br url_regex -i "/etc/squid3/accept"
+acl all src 0.0.0.0/0.0.0.0
+http_access allow accept
+http_access allow br
+http_access deny all" > /etc/squid3/squid.conf
+
+#Dominios
+echo "$IP
+.com.br
+vivo
+claro
+tim
+vivo" > /etc/squid3/accept
 
 clear
 echo "$cyan IP da VPS: $vermelho $IP"
