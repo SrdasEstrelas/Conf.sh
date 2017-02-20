@@ -32,12 +32,14 @@ then
 apt-get update
 apt-get install squid3 -y
 apt-get install nano
+apt-get install curl -y
 
 #Adicionar a porta 443
 echo "Port 443" >> /etc/ssh/sshd_config
 
 #IP da VPS
-read -p "Digite o IP da VPS: " IP
+IP=$(curl https://api.ipify.org/)
+echo $IP
 
 #Novo squid.conf
 echo 'http_port 8080
