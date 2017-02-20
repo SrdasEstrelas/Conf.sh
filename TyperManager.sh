@@ -35,10 +35,37 @@ then
  apt-get upgrade -y
  apt-get install squid3 -y
  apt-get install curl -y
+ service apache2 stop
  
- #Adicionar a porta 443 no ssh e ativar a compressão
- echo "Port 443
-Compression yes" >> /etc/ssh/sshd_config
+ #Novo sshd_config
+echo "Port 22
+Port 443
+Protocol 2
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+SyslogFacility AUTH
+LogLevel INFO
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+PasswordAuthentication yes
+X11Forwarding yes
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive yes
+#UseLogin no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes" > /etc/ssh/sshd_config
+service ssh restart
  
  #Apagar e criar um novo squid.conf
  IP=$(curl https://api.ipify.org/)
@@ -73,13 +100,7 @@ www.recargafacil.claro.com.br
 .vivo.com.br
 .bradescocelular.com.br
 .claroseguridad.com" > /etc/payloads
-
-#Stop apache2
-service apache2 stop
-
-#Restart no Squid3 e SSH
-service squid3 restart
-service ssh restart
+service squi3 restart
 
 clear
 echo "$cyan IP da VPS: $vermelho $IP"
