@@ -11,7 +11,7 @@ cinza="\033[1;30m"
 clear
 main()
 #Menu
-echo " "
+echo ""
 echo "$cyan ----------------------------------"
 echo " |  $cyan Script by: Sr. das Estrelas  |"
 echo "$cyan ----------------------------------"
@@ -38,21 +38,22 @@ apt-get install nano
 echo "Port 443" >> /etc/ssh/sshd_config
 
 #IP da VPS
-echo "Digite o IP da VPS"
-read ": " IP
+IP=$(curl https://api.ipify.org/)
+echo $IP
 
 #Novo squid.conf
 echo "http_port 8080
 http_port 80
+http_port 3128
 visible_hostname SrdasEstrelas
-acl accept src $IP
-acl br url_regex -i "/etc/squid3/accept"
+acl accept src $IP" > /etc/squid3/squid.conf
+
+echo 'acl br url_regex -i "/etc/squid3/accept"
 acl all src 0.0.0.0/0.0.0.0
 http_access allow accept
 http_access allow br
-http_access deny all" > /etc/squid3/squid.conf
-service squid3 restart
-service ssh restart
+http_access deny all' >> /etc/squid3/squid.conf
+
 #Dominios
 echo "$IP
 .com.br
