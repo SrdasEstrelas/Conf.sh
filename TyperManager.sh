@@ -88,9 +88,9 @@ then
  useradd -M -s /bin/false $nome
  echo "$b Senha para o usuario $vermelho( $nome )"
  read -p " " pass
- (echo $pass; echo $pass)|passwd $name
- echo "$cyanUsuário: $b( $nome )
- echo "$cyanSenha: $b( $pass )
+ (echo $pass; echo $pass)|passwd $nome
+ echo "$cyan Usuário: $b( $nome )"
+ echo "$cyan Senha: $b( $pass )"
 fi
 
 #Caso a resposta seja 4
