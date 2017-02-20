@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function sshd_config(){ echo "Port 22
+echo "Port 22
 Port 443
 Protocol 2
 KeyRegenerationInterval 3600
@@ -27,9 +27,8 @@ TCPKeepAlive yes
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes" > /etc/ssh/sshd_config
-}
 
-function payloads(){ echo "minhaclaro.claro.com.br
+echo "minhaclaro.claro.com.br
 recargafacil.claro.com.br
 frontend.claro.com.br
 appfb.claro.com.sv
@@ -43,7 +42,7 @@ www.recargafacil.claro.com.br
 .vivo.com.br
 .bradescocelular.com.br
 .claroseguridad.com" > /etc/payloads
-}
+
 
 apt-get update
 apt-get install -y squid3
