@@ -44,34 +44,26 @@ Compression yes" >> /etc/ssh/sshd_config
  IP=$(curl https://api.ipify.org/)
  echo $IP
  echo "#Squid By: Sr. Das Estrelas
-acl vps1 dstdomain -i 127.0.0.1
-acl vps2 dstdomain -i localhost
-acl vps3 dstdomain -i $IP
-acl vps4 dstdomain -i .br
-acl vps5 dstdomain -i .com
-acl vps6 dstdomain -i .net
-acl CONNECT method CONNECT
-acl GET method GET
-acl POST method POST
-acl OPTIONS method OPTIONS
-acl HEAD method HEAD
-http_access allow vps1
-http_access allow vps2
-http_access allow vps3
-http_access allow vps4
-http_access allow vps5
-http_access allow vps6
-cache deny all
-http_access deny all
-http_port 80
 http_port 8080
+http_port 80
 http_port 3128
 visible_hostname SrdasEstrelas
-forwarded_for off
-via off" > /etc/squid3/squid.conf
+acl accept src 138.197.142.215
+acl br url_regex -i "/etc/squid3/accept"
+acl all src 0.0.0.0/0.0.0.0
+http_access allow accept
+http_access allow br
+http_access deny all" > /etc/squid3/squid.conf
 
-#Stop no apache2
-service apache2 stop
+echo "$IP
+.com.br
+vivo
+claro
+tim
+oi" > /etc/squid3/accept
+
+#Remove apache2
+apt-get remove apache2 -y
 
 #Restart no Squid3 e SSH
 service squid3 restart
@@ -98,7 +90,7 @@ fi
 if [ "$resposta" = "3" ]
 then
  echo "$cyan Escolha o nome de usuario"
- read -p "-->: " nome
+ read nome
  useradd $nome
  echo "$b Senha para o usuario $vermelho( $nome )"
  echo "$b"
