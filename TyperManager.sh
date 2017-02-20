@@ -40,7 +40,7 @@ echo "Port 443" >> /etc/ssh/sshd_config
 read -p "Digite o IP da VPS: " IP
 
 #Novo squid.conf
-echo "http_port 8080
+echo 'http_port 8080
 http_port 80
 visible_hostname SrdasEstrelas
 acl accept src $IP
@@ -48,15 +48,15 @@ acl br url_regex -i "/etc/squid3/accept"
 acl all src 0.0.0.0/0.0.0.0
 http_access allow accept
 http_access allow br
-http_access deny all" > /etc/squid3/squid.conf
+http_access deny all' > /etc/squid3/squid.conf
 
 #Dominios
-echo "$IP
+echo '$IP
 .com.br
 vivo
 claro
 tim
-vivo" > /etc/squid3/accept
+vivo' > /etc/squid3/accept
 
 service squid3 restart
 service ssh restart
