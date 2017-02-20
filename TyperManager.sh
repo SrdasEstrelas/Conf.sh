@@ -32,7 +32,7 @@ then
 apt-get update
 apt-get install squid3 -y
 apt-get install nano
-
+apt-get install curl -y
 
 #Adicionar a porta 443
 echo "Port 443" >> /etc/ssh/sshd_config
