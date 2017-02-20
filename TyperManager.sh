@@ -45,25 +45,37 @@ Compression yes" >> /etc/ssh/sshd_config
  echo $IP
  echo "#Squid By: Sr. Das Estrelas
 http_port 8080
-http_port 80
+http_port 8799
 http_port 3128
 visible_hostname SrdasEstrelas
-acl accept src 138.197.142.215
-acl br url_regex -i "/etc/squid3/accept"
-acl all src 0.0.0.0/0.0.0.0
+acl ip dstdomain $IP
+http_access allow ip" > /etc/squid/squid.conf
+echo 'acl accept dstdomain -i "/etc/payloads"
 http_access allow accept
-http_access allow br
-http_access deny all" > /etc/squid3/squid.conf
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid/squid.conf
 
-echo "$IP
-.com.br
-vivo
-claro
-tim
-oi" > /etc/squid3/accept
+#Payloads
+echo "minhaclaro.claro.com.br
+recargafacil.claro.com.br
+frontend.claro.com.br
+appfb.claro.com.sv
+empresas.claro.com.br
+d1n212ccp6ldpw.cloudfront.net
+claro-gestoronline.claro.com.br
+forms.claro.com.br
+golpf.claro.com.br
+logtiscap.claro.com.br
+www.recargafacil.claro.com.br
+.vivo.com.br
+.bradescocelular.com.br
+.claroseguridad.com" > /etc/payloads
 
-#Remove apache2
-apt-get remove apache2 -y
+#Stop apache2
+service apache2 stop
 
 #Restart no Squid3 e SSH
 service squid3 restart
