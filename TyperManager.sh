@@ -32,14 +32,12 @@ then
 apt-get update
 apt-get install squid3 -y
 apt-get install nano
-apt-get install curl -y
 
 #Adicionar a porta 443
 echo "Port 443" >> /etc/ssh/sshd_config
 
 #IP da VPS
-IP=$(curl https://api.ipify.org/)
-echo $IP
+read -p "Digite o IP da VPS: " IP
 
 #Novo squid.conf
 echo "http_port 8080
@@ -60,12 +58,14 @@ claro
 tim
 vivo" > /etc/squid3/accept
 
-clear
+service squid3 restart
+service ssh restart
+
 echo "$cyan IP da VPS: $vermelho $IP"
 echo "$cyan Squid configurado nas portas: $vermelho 80/8080/3128"
 echo ""
 echo ""
-echo "$vermelho Tudo terminado crie um usuario para testar :)"
+echo "$cyan Tudo terminado crie um usuario para testar :)"
 fi
 
 #Caso a resposta seja 2
