@@ -36,6 +36,7 @@ apt-get install nano
 #Adicionar a porta 443
 echo "Port 443" >> /etc/ssh/sshd_config
 
+clear
 #IP da VPS
 echo "Digite o IP da VPS"
 read -p ": " IP
@@ -76,7 +77,8 @@ if [ "$resposta" = "2" ]
 then
  echo "$cyan Atualizando pacotes..."
  echo "$b"
- apt-get update
+ apt-get update-y
+ apt-get upgrade -y
  echo "$vermelho Tudo terminado :)"
 fi
 
