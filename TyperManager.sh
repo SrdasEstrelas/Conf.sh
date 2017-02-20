@@ -84,11 +84,13 @@ fi
 if [ "$resposta" = "3" ]
 then
  echo "$cyan Escolha o nome de usuario"
- read nome
- useradd $nome
+ read -p " " nome
+ useradd -M -s /bin/false $nome
  echo "$b Senha para o usuario $vermelho( $nome )"
- echo "$b"
- passwd $nome
+ read -p " " pass
+ (echo $pass; echo $pass)|passwd $name
+ echo "$cyanUsuário: $b( $nome )
+ echo "$cyanSenha: $b( $pass )
 fi
 
 #Caso a resposta seja 4
