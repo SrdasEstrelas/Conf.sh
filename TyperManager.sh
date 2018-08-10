@@ -11,11 +11,11 @@ cinza="\033[1;30m"
 clear
 main()
 #Menu
-echo ""
+echo " "
 echo "$cyan ----------------------------------"
 echo " |  $cyan Script by: Sr. das Estrelas  |"
 echo "$cyan ----------------------------------"
-echo ""
+echo " "
 echo "$b
 "[1] Configurar Vps [$vermelho Ubuntu 14/Anterior $b]"
 "[2] Atualizar Pacotes"
