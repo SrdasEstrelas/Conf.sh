@@ -11,7 +11,7 @@ cinza="\033[1;30m"
 clear
 main()
 #Menu
-echo "$cyan ----------------------------------"
+echo '$cyan ----------------------------------'
 echo " |  $cyan Script by: Sr. das Estrelas  |"
 echo "$cyan ----------------------------------"
 echo " "
