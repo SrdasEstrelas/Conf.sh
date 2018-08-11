@@ -6,7 +6,7 @@ echo " | Script by: Sr. das Estrelas |"
 echo "----------------------------------"
 echo ""
 echo "
-"[1] Configurar Vps [$vermelho Ubuntu 14/Anterior "
+"[1] Configurar Vps [ Ubuntu 14/Anterior ] "
 "[2] Atualizar Pacotes _Não funciona_"
 "[3] Adicionar Usuario"
 "[4] Deletar Usuario _Não funciona_"
@@ -24,7 +24,8 @@ apt-get install nano
 rm /etc/squid3/squid.conf
 
 #Adicionar a porta 443
-echo "Port 443" >> /etc/ssh/sshd_config
+echo "
+Port 443" >> /etc/ssh/sshd_config
 
 clear
 #IP da VPS
@@ -64,13 +65,10 @@ vivo
 portalrecarga.vivo.com.br/recarga/i/gp/
 portalrecarga.vivo.com.br/recarga
 portalrecarga.vivo.com.br/recarga/home
-
 www.portalsva2.vivo.com.br/captive-static/tarif-def/pd/index.html
 www.portalsva2.vivo.com.br/captive-static/tarif-def/cd/index.html
-
 navegue.vivo.com.br/pre
 sdp.vivo.com.br
-
 portalrecarga.vivo.com.br/dadospos/home/
 www.portalrecarga.vivo.com.br/dadospos/home/
 portalrecarga.vivo.com.br/noCredit/vitrine/controle/
@@ -89,24 +87,20 @@ gitlab.veek.com.br
 d1n212ccp6ldpw.cloudfront.net" > /etc/squid3/payload.txt
 
 #Dominios 127.0.0.1
-echo "
+echo "127.0.0.1 /?
 127.0.0.1 portalrecarga.vivo.com.br/recarga/i/gp/
 127.0.0.1 portalrecarga.vivo.com.br/recarga
 127.0.0.1 portalrecarga.vivo.com.br/recarga/home
 127.0.0.1 d1n212ccp6ldpw.cloudfront.net
 127.0.0.1 sdp.vivo.com.br
 127.0.0.1 navegue.vivo.com.br/pre
-127.0.0.1 veek.com.br
-127.0.0.1 /?" > /etc/hosts
+127.0.0.1 veek.com.br " > /etc/hosts
 
 #Restart No Squid e SSH
 
 service squid3 restart
 service ssh restart
 sleep 2
-service squid3 reload
-service ssh restart
-sleep 3
 clear
 bash s.sh
 fi
