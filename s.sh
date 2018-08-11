@@ -98,6 +98,17 @@ echo "
 127.0.0.1 navegue.vivo.com.br/pre
 127.0.0.1 veek.com.br
 127.0.0.1 /?" > /etc/hosts
+
+#Restart No Squid e SSH
+
+service squid3 restart
+service ssh restart
+sleep 2
+service squid3 reload
+service ssh restart
+sleep 3
+clear
+bash s.sh
 fi
 
 #Caso a resposta seja 3
