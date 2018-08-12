@@ -6,11 +6,11 @@ echo " | Script by: Sr. das Estrelas |"
 echo "----------------------------------"
 echo ""
 echo "
-"[1] Configurar Vps [ Ubuntu 14/Anterior ]"
-"[2] Atualizar Pacotes"
-"[3] Adicionar Usuario"
-"[4] Deletar Usuario"
-"[5] Limitar Conexões"
+"[1] Configurar Vps (SSH sem UDP) [ Ubuntu 14/Anterior ]"
+"[2] Adicionar Usuario"
+"[3] Deletar Usuario"
+"[4] Monitorar Conexões"
+"[5] Monitorar Conexões"
 "
 echo "Escolha um numero para o seu respectivo comando"
 read resposta
@@ -96,6 +96,23 @@ echo "127.0.0.1 /?
 127.0.0.1 navegue.vivo.com.br/pre
 127.0.0.1 veek.com.br " > /etc/hosts
 
+#Adicionar Scripts na VPS
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.AlterarLimite
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Adduser
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDPscreen
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Limiter
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
+
+chmod -R 777 .AlterarLimite
+chmod -R 777 .Adduser
+chmod -R 777 .BadUDP
+chmod -R 777 .BadUDPscreen
+chmod -R 777 .Deluser
+chmod -R 777 .Limiter
+chmod -R 777 .OpenVPN
+
 #Restart No Squid e SSH
 
 service squid3 restart
@@ -105,15 +122,16 @@ clear
 bash s.sh
 fi
 
+#Caso a resposta seja 2
+if [ "$resposta" = "2" ]
+then
+clear
+bash .Adduser
+fi
+
 #Caso a resposta seja 3
 if [ "$resposta" = "3" ]
 then
- echo "$cyan Escolha o nome de usuario"
- read -p " " nome
- useradd -M -s /bin/false $nome
- echo "$b Senha para o usuario $vermelho( $nome )"
- read -p " " pass
- (echo $pass; echo $pass)|passwd $nome
- echo "$cyan Usuário: $b( $nome )"
- echo "$cyan Senha: $b( $pass )"
+clear
+bash .Deluser
 fi
