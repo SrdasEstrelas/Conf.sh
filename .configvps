@@ -1,0 +1,115 @@
+#!/bin/bash
+
+apt-get update
+apt-get install squid3 -y
+apt-get install nano
+rm /etc/squid3/squid.conf
+
+#Adicionar a porta 443
+echo "
+Port 443" >> /etc/ssh/sshd_config
+
+clear
+#IP da VPS
+
+IP=$(wget -4qO- "http://whatismyip.akamai.com/")
+
+#SQUID3
+echo "
+http_port 80
+visible_hostname LukeWen
+acl ip dstdomain $IP
+acl ip dstdomain 10.8.0.1
+acl CONNECT method CONNECT
+acl GET method GET
+acl POST method POST
+acl s dstdomain -i /?
+http_access allow s
+http_access allow ip ">>/etc/squid3/squid.conf
+
+echo '
+acl accept dstdomain -i "/etc/squid3/payload.txt"
+http_access allow accept
+acl local dstdomain localhost
+http_access allow local
+acl iplocal dstdomain 127.0.0.1
+http_access allow iplocal
+http_access deny all' >> /etc/squid3/squid.conf
+
+#Hosts
+
+echo "$IP
+.com.br
+vivo
+claro
+tim
+vivo
+portalrecarga.vivo.com.br/recarga/i/gp/
+portalrecarga.vivo.com.br/recarga
+portalrecarga.vivo.com.br/recarga/home
+www.portalsva2.vivo.com.br/captive-static/tarif-def/pd/index.html
+www.portalsva2.vivo.com.br/captive-static/tarif-def/cd/index.html
+navegue.vivo.com.br/pre
+sdp.vivo.com.br
+portalrecarga.vivo.com.br/dadospos/home/
+www.portalrecarga.vivo.com.br/dadospos/home/
+portalrecarga.vivo.com.br/noCredit/vitrine/controle/
+www.portalrecarga.vivo.com.br/noCredit/vitrine/controle/
+interatividade.vivo.ddivulga.com/produto
+i.vivo.ddivulga.com/i/gp
+portalrecarga.vivo.com.br/recarga/home
+i.vivo-hom.ddivulga.com/i/gp
+sdp.vivo.com.br
+navegue.vivo.ddivulga.com/pacote
+200.220.254.31
+187.8.166.33
+clients1.google.com
+veek.com.br
+gitlab.veek.com.br
+d1n212ccp6ldpw.cloudfront.net" > /etc/squid3/payload.txt
+
+#Dominios 127.0.0.1
+echo "127.0.0.1 /?
+127.0.0.1 portalrecarga.vivo.com.br/recarga/i/gp/
+127.0.0.1 portalrecarga.vivo.com.br/recarga
+127.0.0.1 portalrecarga.vivo.com.br/recarga/home
+127.0.0.1 d1n212ccp6ldpw.cloudfront.net
+127.0.0.1 sdp.vivo.com.br
+127.0.0.1 navegue.vivo.com.br/pre
+127.0.0.1 veek.com.br " > /etc/hosts
+
+#Adicionar Scripts na VPS
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.AlterarLimite
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Adduser
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Limiter
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
+
+mv .AlterarLimite /bin
+mv .Adduser /bin
+mv .BadUDP /bin
+mv .Deluser /bin
+mv .Limiter /bin
+mv .OpenVPN /bin
+mv monitor /bin
+mv menu /bin
+
+chmod -R 777 /bin/.AlterarLimite
+chmod -R 777 /bin/.Adduser
+chmod -R 777 /bin/.BadUDP
+chmod -R 777 /bin/.BadUDPscreen
+chmod -R 777 /bin/.Deluser
+chmod -R 777 /bin/.Limiter
+chmod -R 777 /bin/.OpenVPN
+chmod -R 777 /bin/menu
+chmod -R 777 /bin/monitor
+
+#Restart No Squid e SSH
+
+service squid3 restart
+service ssh restart
+sleep 2
+clear
+bash  /bin/menu
