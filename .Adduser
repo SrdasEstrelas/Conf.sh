@@ -5,12 +5,12 @@ read -p "Nome do usuário: " username
 awk -F : ' { print $1 }' /etc/passwd > /tmp/users 
 if grep -Fxq "$username" /tmp/users
 then
-	tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Este usuário já existe. Crie um usuÃ¡rio com outro nome." ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Este usuário já existe. Crie um Usuário com outro nome." ; echo "" ; tput sgr0
 	exit 1	
 else
 	if (echo $username | egrep [^a-zA-Z0-9.-_] &> /dev/null)
 	then
-		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Você digitou um nome deusuário inválido!" ; tput setab 1 ; echo "Use apenas letras, números, pontos e traÃ§os." ; tput setab 4 ; echo "NÃ£o use espaÃ§os, acentos ou caracteres especiais!" ; echo "" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Você digitou um nome de usuário inválido!" ; tput setab 1 ; echo "Use apenas letras, números, pontos e traÃ§os." ; tput setab 4 ; echo "NÃ£o use espaÃ§os, acentos ou caracteres especiais!" ; echo "" ; tput sgr0
 		exit 1
 	else
 		sizemin=$(echo ${#username})
@@ -58,20 +58,20 @@ else
 										tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "VocÃª deve digitar um nÃºmero de dias maior que zero!" ; echo "" ; tput sgr0
 										exit 1
 									else
-										read -p "NÂº de conexões simultâneas permitidas: " sshlimiter
+										read -p "Nº de conexões simultâneas permitidas: " sshlimiter
 										if (echo $sshlimiter | egrep '[^0-9]' &> /dev/null)
 										then
-											tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "VocÃª digitou um número de conexões invÃ¡lido!" ; echo "" ; tput sgr0
+											tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Você digitou um número de conexões inválido!" ; echo "" ; tput sgr0
 											exit 1
 										else
 											if [[ -z $sshlimiter ]]
 											then
-												tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "VocÃª deixou o número de conexÃµes simultâneas vazio!" ; echo "" ; tput sgr0
+												tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Você deixou o número de conexões simultâneas vazio!" ; echo "" ; tput sgr0
 												exit 1
 											else
 												if [[ $sshlimiter -lt 1 ]]
 												then
-													tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "VocÃª deve digitar um nÃºmero de conexÃµes simultâneas maior que zero!" ; echo "" ; tput sgr0
+													tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "Você deve digitar um número de conexÃµes simultâneas maior que zero!" ; echo "" ; tput sgr0
 													exit 1
 												else
 													final=$(date "+%Y-%m-%d" -d "+$dias days")
