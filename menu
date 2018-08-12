@@ -47,12 +47,6 @@ clear
 bash /bin/.Limiter
 fi
 
-#Caso a resposta seja 4
-if [ "$resposta" = "4" ]
-then
-clear
-bash /bin/monitor
-fi
 
 #Caso a resposta seja 5
 if [ "$resposta" = "5" ]
