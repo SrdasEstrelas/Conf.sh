@@ -119,7 +119,7 @@ service squid3 restart
 service ssh restart
 sleep 2
 clear
-bash s.sh
+bash Menu
 fi
 
 #Caso a resposta seja 2
