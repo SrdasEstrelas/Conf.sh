@@ -6,7 +6,7 @@ echo " | Script by: Sr. das Estrelas |"
 echo "----------------------------------"
 echo ""
 echo "
-"[1] Configurar Vps (SSH sem UDP) [ Ubuntu 14/Anterior ]"
+"[1] Configurar Vps [ Ubuntu 14/Anterior ]"
 "[2] Adicionar Usuario"
 "[3] Deletar Usuario"
 "[4] Monitorar Conexões"
@@ -29,8 +29,8 @@ Port 443" >> /etc/ssh/sshd_config
 
 clear
 #IP da VPS
-echo "Digite o IP da VPS"
-read -p ": " IP
+
+IP=$(wget -4qO- "http://whatismyip.akamai.com/")
 
 #SQUID3
 echo "
