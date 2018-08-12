@@ -44,7 +44,7 @@ echo $$ > /tmp/kids
 while true
 do
 tput setaf 7 ; tput setab 1 ; tput bold ; printf '%28s%s%-18s\n' "SSH Monitor"
-tput setaf 7 ; tput setab 1 ; printf '  %-25s%s\n' "UsuÃ¡rio" "ConexÃ£o/Limite"; echo "" ; tput sgr0
+tput setaf 7 ; tput setab 1 ; printf '  %-25s%s\n' "Usuário" "Conexão/Limite"; echo "" ; tput sgr0
 	while read usline
 	do
 		user="$(echo $usline | cut -d' ' -f1)"
@@ -63,7 +63,7 @@ done
 }
 function showdataovpn {
 tput setaf 7 ; tput setab 1 ; tput bold ; printf '%28s%s%-18s\n' "OpenVPN Monitor"; tput sgr0
-tput setaf 7 ; tput setab 1 ; printf '  %-30s%s\n' "UsuÃ¡rio" "Conectado?" ; tput sgr0
+tput setaf 7 ; tput setab 1 ; printf '  %-30s%s\n' "Usuário" "Conectado" ; tput sgr0
 tput setaf 3 ; tput bold ; printf '  %-30s%s\n' $_user $_conn; tput sgr0
 }
 dataovpn
