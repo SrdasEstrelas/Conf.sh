@@ -32,5 +32,3 @@ tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN Setup 0
 	echo ""
 	echo "BadVPN instalado com sucesso."
 	echo "" ; tput sgr0
-	
-bash /bin/.BadUDPscreen
