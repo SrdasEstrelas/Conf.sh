@@ -11,7 +11,7 @@ echo "
 "[3] Deletar Usuario"
 "[4] Monitorar Conexões"
 "[5] Configurar OpenVPN"
-"[6] Configurar UDP [Chamadas Whatsapp]"
+"[6] Configurar UDP"
 "
 echo "Escolha um numero para o seu respectivo comando"
 read resposta
