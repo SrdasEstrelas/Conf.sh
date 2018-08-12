@@ -24,4 +24,6 @@ case "$1" in
 		screen -Dms badudp "/bin/badudp"
 		screen -wipe
 		;;
+		
+		echo "Pronto, dê reboot na VPS para as modificações ficarem ok"
 esac
