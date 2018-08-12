@@ -105,21 +105,31 @@ wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Limiter
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
 
-chmod -R 777 .AlterarLimite
-chmod -R 777 .Adduser
-chmod -R 777 .BadUDP
-chmod -R 777 .BadUDPscreen
-chmod -R 777 .Deluser
-chmod -R 777 .Limiter
-chmod -R 777 .OpenVPN
-chmod -R 777 Menu.sh
+mv .AlterarLimite /bin
+mv .Adduser /bin
+mv .BadUDP /bin
+mv .BadUDPscreen /bin
+mv .Deluser /bin
+mv .Limiter /bin
+mv .OpenVPN /bin
+
+chmod -R 777 /bin/.AlterarLimite
+chmod -R 777 /bin/.Adduser
+chmod -R 777 /bin/.BadUDP
+chmod -R 777 /bin/.BadUDPscreen
+chmod -R 777 /bin/.Deluser
+chmod -R 777 /bin/.Limiter
+chmod -R 777 /bin/.OpenVPN
+chmod -R 777 /bin/menu
+
+
 #Restart No Squid e SSH
 
 service squid3 restart
 service ssh restart
 sleep 2
 clear
-bash Menu.sh
+bash menu
 fi
 
 #Caso a resposta seja 2
