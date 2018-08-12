@@ -10,7 +10,7 @@ echo "
 "[2] Adicionar Usuario"
 "[3] Deletar Usuario"
 "[4] Monitorar Conexões"
-"[5] Monitorar Conexões"
+"[5] Configurar OpenVPN"
 "
 echo "Escolha um numero para o seu respectivo comando"
 read resposta
@@ -129,19 +129,34 @@ service squid3 restart
 service ssh restart
 sleep 2
 clear
-bash menu
+bash  /bin/menu
+
 fi
 
 #Caso a resposta seja 2
 if [ "$resposta" = "2" ]
 then
 clear
-bash .Adduser
+bash /bin/.Adduser
 fi
 
 #Caso a resposta seja 3
 if [ "$resposta" = "3" ]
 then
 clear
-bash .Deluser
+bash /bin/.Deluser
+fi
+
+#Caso a resposta seja 4
+if [ "$resposta" = "4" ]
+then
+clear
+bash /bin/.Limiter
+fi
+
+#Caso a resposta seja 4
+if [ "$resposta" = "4" ]
+then
+clear
+bash /bin/.Limiter
 fi
