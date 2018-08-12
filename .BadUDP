@@ -1,7 +1,7 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN Setup 0.9 by Phreaker56" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN Setup 0.9 by LukeWen" ; tput sgr0
 	echo ""
-	echo "A instalaÃ§Ã£o pode demorar bastante... seja paciente!"
+	echo "A instalação pode demorar bastante... seja paciente!"
 	sleep 3
 	apt-get update -y
 	apt-get install screen wget gcc build-essential g++ make -y
@@ -31,10 +31,6 @@ tput setaf 7 ; tput setab 4 ; tput bold ; printf '%50s%s%-20s\n' "BadVPN Setup 0
 	tput setaf 3 ; tput bold ; echo ""
 	echo ""
 	echo "BadVPN instalado com sucesso."
-	echo "Para usar, crie uma sessÃ£o screen"
-	echo "E execute o comando:"
-	echo ""
-	echo "badudp"
-	echo ""
-	echo "E deixe a sessÃ£o screen rodando em segundo plano."
 	echo "" ; tput sgr0
+	
+bash /bin/.BadUDPscreen
