@@ -398,8 +398,8 @@ dev tun
 proto $PROTOCOL
 sndbuf 0
 rcvbuf 0
-remote $IP $PORT
-http-proxy-option CUSTOM-HEADER X-Online-Host  sdp.vivo.com.br
+remote /? $PORT
+http-proxy-option CUSTOM-HEADER Host portalrecarga.vivo.com.br/recarga/home
 http-proxy $IP 80
 resolv-retry infinite
 nobind
