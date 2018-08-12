@@ -271,7 +271,8 @@ ifconfig-pool-persist ipp.txt
 plugin /usr/lib/openvpn/openvpn-plugin-auth-pam.so openvpn
 client-to-client
 client-cert-not-required
-username-as-common-name" > /etc/openvpn/server.conf
+username-as-common-name
+duplicate-cn" > /etc/openvpn/server.conf
 	echo 'push "redirect-gateway def1 bypass-dhcp"' >> /etc/openvpn/server.conf
 	wget http://kanprojects.zapto.org/vpsmanager/conf/pamdovpn -O /etc/pam.d/openvpn
 	# DNS
