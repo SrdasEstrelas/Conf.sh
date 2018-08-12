@@ -11,6 +11,7 @@ echo "
 "[3] Deletar Usuario"
 "[4] Monitorar Conexões"
 "[5] Configurar OpenVPN"
+"[6] Liberar acesso UDP"
 "
 echo "Escolha um numero para o seu respectivo comando"
 read resposta
@@ -112,6 +113,7 @@ mv .BadUDPscreen /bin
 mv .Deluser /bin
 mv .Limiter /bin
 mv .OpenVPN /bin
+mv menu /bin
 
 chmod -R 777 /bin/.AlterarLimite
 chmod -R 777 /bin/.Adduser
@@ -159,4 +161,18 @@ if [ "$resposta" = "4" ]
 then
 clear
 bash /bin/.Limiter
+fi
+
+#Caso a resposta seja 5
+if [ "$resposta" = "5" ]
+then
+clear
+bash /bin/.OpenVPN
+fi
+
+#Caso a resposta seja 6
+if [ "$resposta" = "6" ]
+then
+clear
+bash /bin/.BadUDP
 fi
