@@ -30,7 +30,7 @@ if [ -e "/etc/openvpn/" ]; then
 			if [ "$_conn" = "1" ]; then
 				_conn="Sim"
 			else
-				_conn="NÃ£o"
+				_conn="Não"
 			fi
  		fi
 	done
