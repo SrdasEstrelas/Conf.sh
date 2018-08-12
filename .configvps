@@ -83,7 +83,7 @@ wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.AlterarLimi
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Adduser
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
-https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
 
