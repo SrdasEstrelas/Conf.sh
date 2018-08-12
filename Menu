@@ -112,14 +112,14 @@ chmod -R 777 .BadUDPscreen
 chmod -R 777 .Deluser
 chmod -R 777 .Limiter
 chmod -R 777 .OpenVPN
-
+chmod -R 777 Menu.sh
 #Restart No Squid e SSH
 
 service squid3 restart
 service ssh restart
 sleep 2
 clear
-bash Menu
+bash Menu.sh
 fi
 
 #Caso a resposta seja 2
