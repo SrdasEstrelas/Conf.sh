@@ -1,7 +1,7 @@
 #!bin/bash
 
 echo "Deseja instalar o BadVPN? [s / CTRL + C para abortar a instalação]"
-read -p resposta
+read resposta
 
 #Caso a resposta for s
 if [ "$resposta" = "s" ]
@@ -14,7 +14,7 @@ bash /bin/badvpnconf.sh
 fi
 
 echo "Deseja rodar o BadVPN em modo bootscreen? [s / CTRL + C para abortar a instalação]"
-read -p resposta
+read resposta
 
 #Caso a resposta for s
 if [ "$resposta" = "s" ]
