@@ -8,6 +8,7 @@ wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/BadVpn
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/menu
 
 mv .AlterarLimite /bin
 mv .Adduser /bin
