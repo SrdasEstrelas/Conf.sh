@@ -78,34 +78,6 @@ echo "127.0.0.1 /?
 127.0.0.1 navegue.vivo.com.br/pre
 127.0.0.1 veek.com.br " > /etc/hosts
 
-#Adicionar Scripts na VPS
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.AlterarLimite
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Adduser
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
-
-mv .AlterarLimite /bin
-mv .Adduser /bin
-mv .BadUDP /bin
-mv .Deluser /bin
-mv limiter /bin
-mv .OpenVPN /bin
-mv monitor /bin
-mv menu /bin
-
-chmod -R 777 /bin/.AlterarLimite
-chmod -R 777 /bin/.Adduser
-chmod -R 777 /bin/.BadUDP
-chmod -R 777 /bin/.BadUDPscreen
-chmod -R 777 /bin/.Deluser
-chmod -R 777 /bin/limiter
-chmod -R 777 /bin/.OpenVPN
-chmod -R 777 /bin/menu
-chmod -R 777 /bin/monitor
-
 #Restart No Squid e SSH
 
 service squid3 restart
