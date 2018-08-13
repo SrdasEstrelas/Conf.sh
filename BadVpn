@@ -1,0 +1,28 @@
+#!bin/bash
+
+echo "Deseja instalar o BadVPN? [s / CTRL + C para abortar a instalação]"
+read -p resposta
+
+#Caso a resposta for s
+if [ "$resposta" = "s" ]
+then
+clear
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/badvpnconf.sh
+mv badvpnconf.sh /bin
+chmod 777 /bin/badvpnconf.sh
+bash /bin/badvpnconf.sh
+fi
+
+echo "Deseja rodar o BadVPN em modo bootscreen? [s / CTRL + C para abortar a instalação]"
+read -p resposta
+
+#Caso a resposta for s
+if [ "$resposta" = "s" ]
+then
+clear
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/badudp
+mv badudp /bin
+chmod 777 /bin/badudp
+bash /bin/badudp
+fi
+
