@@ -41,6 +41,4 @@ else
 	sleep 3
     clear
     echo "Completado. Voltando ao menu..."
-    sleep 1
-    menu_spwn
 fi
