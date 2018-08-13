@@ -41,6 +41,7 @@ echo "
 "[4] Monitorar Conexões"
 "[5] Configurar OpenVPN"
 "[6] Configurar UDP _BadVPN"
+"[7] Alterar Limite de um usuário"
 "
 echo "Escolha um numero para o seu respectivo comando"
 read resposta
@@ -90,4 +91,11 @@ if [ "$resposta" = "6" ]
 then
 clear
 bash /bin/.BadVpn
+fi
+
+#Caso a resposta seja 7
+if [ "$resposta" = "7" ]
+then
+clear
+bash /bin/.AlterarLimite
 fi
