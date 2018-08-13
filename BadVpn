@@ -12,4 +12,5 @@ mv badvpnconf.sh /bin
 chmod 777 /bin/badvpnconf.sh
 bash /bin/badvpnconf.sh
 fi
-
+sleep 4
+bash menu
