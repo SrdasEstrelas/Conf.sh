@@ -1,1 +1,3 @@
-
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Instalador
+chmod 777 .Instalador
+bash .Instalador
