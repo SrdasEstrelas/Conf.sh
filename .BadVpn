@@ -1,0 +1,34 @@
+#Cria a função para instalação do BADVPN -- UDPGW
+function inst_udpgw {
+#Verifica se o BadVPN já foi instalado
+if [ -e "/bin/badudp" ]; then
+	echo "BadVPN já instalado."
+else
+	tput setab 4 ; tput setaf 7 ; echo "Deseja instalar o UDP agora? (S/n): " ; tput sgr0
+	read -p "Resposta: " -e -i S inst_udp
+	case $inst_udp in
+        [sS])   wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP > /dev/null 2>&1
+                chmod 777 .BadUDPscreen
+                ./BadUDPscreen
+                sleep 3
+            #AtivaÃ§Ã£o de início automático para badudpgw
+            tput setab 4 ; tput setaf 7 ; echo "Deseja ativar o início automático do BadUDP no servidor? (S/n): " ; tput sgr0
+			read -p "Resposta: " -e -i S init_udp
+                case $init_udp in
+                            [sS]) 
+                                wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDPscreen -O /etc/init.d/badudp
+                                chmod 777 /etc/init.d/.BadUDPscreen
+                                update-rc.d .BadUDPscreen enable > /dev/null 2>&1
+                                echo "Configurado!"
+                                echo "O UDP agora rodará automaticamente no boot."
+                                ;;
+                            [nN]) /bin/dudp > /dev/null 2>&1
+                                echo "O UDP |NÃƒO| rodará automaticamente no boot."
+                                ;;
+                        esac
+                ;;
+		[nN])   echo "BadUDP não instalado."
+                echo "Prosseguindo com a instalação..."
+                ;;
+    esac
+fi
