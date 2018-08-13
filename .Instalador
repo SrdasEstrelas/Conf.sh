@@ -7,12 +7,12 @@ wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Deluser
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
-wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/BadVpn
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/menu
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/badvpnconf.sh
 
 mv .AlterarLimite /bin
 mv .Adduser /bin
-mv BadVpn /bin
+mv badvpnconf.sh /bin
 mv .Deluser /bin
 mv limiter /bin
 mv .OpenVPN /bin
@@ -21,7 +21,7 @@ mv menu /bin
 
 chmod -R 777 /bin/.AlterarLimite
 chmod -R 777 /bin/.Adduser
-chmod -R 777 /bin/BadVpn
+chmod -R 777 /bin/badvpnconf.sh
 chmod -R 777 /bin/.Deluser
 chmod -R 777 /bin/limiter
 chmod -R 777 /bin/.OpenVPN
