@@ -10,6 +10,7 @@ clear
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/badvpnconf.sh
 mv badvpnconf.sh /bin
 chmod 777 /bin/badvpnconf.sh
+clear
 bash /bin/badvpnconf.sh
 fi
 sleep 4
