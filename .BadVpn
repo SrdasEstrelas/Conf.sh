@@ -8,8 +8,8 @@ else
 	read -p "Resposta: " -e -i S inst_udp
 	case $inst_udp in
         [sS])   wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.BadUDP > /dev/null 2>&1
-                chmod 777 .BadUDPscreen
-                ./BadUDPscreen
+                chmod 777 .BadUDP
+                ./.BadUDP
                 sleep 3
             #AtivaÃ§Ã£o de início automático para badudpgw
             tput setab 4 ; tput setaf 7 ; echo "Deseja ativar o início automático do BadUDP no servidor? (S/n): " ; tput sgr0
