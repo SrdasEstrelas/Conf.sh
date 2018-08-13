@@ -11,7 +11,7 @@ echo "
 "[3] Deletar Usuario"
 "[4] Monitorar Conexões"
 "[5] Configurar OpenVPN"
-"[6] Configurar UDP _BadVPN"
+"[6] Configurar UDP_BadVPN"
 "[7] Alterar Limite de um usuário"
 "
 echo "Escolha um numero para o seu respectivo comando"
@@ -61,7 +61,7 @@ fi
 if [ "$resposta" = "6" ]
 then
 clear
-bash /bin/.BadVpn
+bash /bin/BadVpn
 fi
 
 #Caso a resposta seja 7
