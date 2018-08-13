@@ -8,6 +8,7 @@ wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/limiter
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.OpenVPN
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/monitor
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/menu
+wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/BadVpn
 
 mv .AlterarLimite /bin
 mv .Adduser /bin
@@ -16,6 +17,7 @@ mv limiter /bin
 mv .OpenVPN /bin
 mv monitor /bin
 mv menu /bin
+mv BadVpn /bin
 
 chmod -R 777 /bin/.AlterarLimite
 chmod -R 777 /bin/.Adduser
@@ -24,5 +26,6 @@ chmod -R 777 /bin/limiter
 chmod -R 777 /bin/.OpenVPN
 chmod -R 777 /bin/menu
 chmod -R 777 /bin/monitor
+chmod -R 777 /bin/BadVpn
 
 bash menu
