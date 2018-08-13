@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Adicionar Scripts na VPS
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.AlterarLimite
 wget https://raw.githubusercontent.com/SrdasEstrelas/Conf.sh/master/.Adduser
